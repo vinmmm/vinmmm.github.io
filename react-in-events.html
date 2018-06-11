@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FettsJS</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+<div class="header">
+<h2>FettsJS</h2>
+<img src="devil-lock-yellow-1.png">
+</div>
+<!--Navigation-->
+<div class="index">
+    <table>
+      <tr>
+        <td><a href="/index.html">home</a></td>
+      </tr>
+      <tr>
+        <td><a href="/arrays.html">arrays</a></td>
+      </tr>
+      <tr>
+        <td><a href="/events.html">events</a></td>
+      </tr>
+      <tr>
+        <td><a href="/async.html">async</a></td>
+      </tr>
+      <tr>
+        <td><a href="/react-props.html">react props</a></td>
+      </tr>
+      <tr>
+        <td><a href="/react.html">react router</a></td>
+      </tr>
+      <tr>
+        <td><a href="/react-components.html">react components</a></td>
+      </tr>
+    </table>
+</div>
+
+
+<h3>Components in React</h3>
+<p style="padding: 0px 0px 25px 10px;">Calling with onClick in a jsx element is fine :)
+
+    When in a react component dont envoke it, take out the onClick :)
+    
+    What your doing with a component is passing the event handler in as a prop and in the component itself you have the event/ event handler relationship.
+    
+    So insted of having something like onClick= even though it looks like it would work you instead create something like clickHandler= and inside the button jsx thats inside the actuall component you do this: onClick=
+    
+    Then of course you have the method of something like var addPerson = this.state.people
+    
+    And in the setState you have something like this.setState people : addPerson</p>
+<p class="bat-routing">So, ...</p>
+<pre>
+<code class="prettyprint lang-js">
+    
+        import React, { Component } from 'react';
+        import { render } from 'react-dom';
+        import Hello from './Hello';
+        import './style.css';
+        
+        
+        class Button extends Component {
+          render() {
+            return (
+              <div>
+        <button onClick={this.props.clickHandler}>+</button>
+        </div>
+            );
+          }
+        }
+        
+        
+        
+        class App extends Component {
+          constructor() {
+            super();
+            this.state = {
+              name: 'react'
+            };
+        
+            this.add = this.add.bind(this);
+          } 
+        
+          add(e)  {
+            var add = this.state.name;
+        
+            this.setState({
+               name:  'Events in react'
+            });
+        
+          }
+        
+          render() {
+            return (
+              <div>
+                <Hello name={this.state.name} />
+                <p>
+                  calling with onClick in a jsx element is fine :)
+                </p>
+        
+                <p>
+                  When in a react component dont envoke it, take out the onClick :)
+                </p>
+        
+                <p>
+                What your doing with a component is passing the event handler in as a prop and in the component itself you have the event/ event handler relationship.
+                </p>
+        
+                <p>
+                So insted of having something like onClick={this.addPerson} even though it looks like it would work you instead create something like clickHandler={this.addPeron} and inside the button jsx thats inside the actuall component you do this: onClick={this.props.clickHandler}
+                </p>
+        
+                <p>
+                Then of course you have the method of something like var addPerson = this.state.people
+                </p>
+        
+                <p>
+                And in the setState you have something like this.setState people : addPerson
+                </p>
+                <Button clickHandler = {this.add} />
+              </div>
+              
+            );
+          }
+        }
+        
+        render(<App />, document.getElementById('root'));
+        
+
+
+
+
+</code>
+</pre>
+
+
+
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+</body>
+</html>
