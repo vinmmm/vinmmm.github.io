@@ -97,6 +97,10 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+   section {
+       padding: 30px;
+   }
+
    .header {
     background: midnightblue;
     color: deeppink;
